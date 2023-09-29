@@ -15,10 +15,7 @@ from challenges.models import Book
 
 
 def get_book(book_id: int) -> Book | None:
-    try:
-        book = Book.objects.get(pk=1)
-    except:
-        book = None
+    book = Book.objects.filter(pk=book_id).first()
     return book
 
 def book_details_handler(request: HttpRequest, book_id: int) -> HttpResponse:
