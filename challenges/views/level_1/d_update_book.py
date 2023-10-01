@@ -30,8 +30,6 @@ def update_book_handler(request: HttpRequest, book_id: int) -> HttpResponse:
         return HttpResponseBadRequest("One of required parameters are missing")
 
     book = update_book(book_id, title, author_full_name, isbn)
-    print(book)
-
     if book is None:
         return HttpResponseBadRequest()
 
